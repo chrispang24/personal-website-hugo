@@ -5,3 +5,5 @@
 My personal website, built with [Hugo](https://gohugo.io) and hosted on [Netlify](https://www.netlify.com/).
 
 The base theme is [Academia](https://github.com/themefisher/academia-hugo), with a few edits by me. The website is automatically deployed using Netlify.
+
+This website is hosted at my personal domain: https://www.christopherpang.ca
