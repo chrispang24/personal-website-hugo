@@ -7,3 +7,13 @@
   name = "Home"
   url = "#hero"
   weight = 10
+
+[[main]]
+  name = "Projects"
+  url = "#featured"
+  weight = 20
+
+[[main]]
+  name = "Resume"
+  url = "pdf/Christopher Pang - Resume.pdf"
+  weight = 30
