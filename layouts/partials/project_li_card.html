@@ -1,0 +1,40 @@
+{{ $item := .item }}
+{{ $widget := .widget }}
+
+{{ $link := .link }}
+{{ $target := .target }}
+
+{{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
+{{ $js_tag_classes := delimit (apply (apply $item.Params.tags "replace" "." " " "-") "printf" "js-id-%s" ".") " " }}
+
+<div class="project-card project-item isotope-item {{ $js_tag_classes | safeHTMLAttr }}">
+  <div class="card rounded-0 shadow-sm">
+    {{ with $resource }}
+    {{ $image := .Resize (printf "550x q90 %s") }}
+    <img src="{{ $image.RelPermalink }}" alt="" class="img-responsive">
+    {{ end }}
+    <div class="card-body">
+      <div class="card-company">
+        {{ with $item.Params.company }}<p>{{ . | markdownify | emojify }}</p>{{ end }}
+      </div>
+      <h4>{{ $item.Title | markdownify | emojify }}</h4>
+      <div class="card-description">
+        {{ with $item.Params.summary }}<p>{{ . | markdownify | emojify }}</p>{{ end }}
+      </div>
+      <div>
+        {{ range $item.Params.role}}
+        <span class="card-role">
+          {{ . }}
+        </span>
+        {{ end }}
+      </div>
+      <div class="card-tech-list">
+        {{ range $item.Params.tech}}
+        <span class="card-tech">
+          {{ . }}
+        </span>      
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
